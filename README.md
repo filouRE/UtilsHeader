@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.ibb.co/WWXXPqK/Frame-74.png" width="65%" style="">
+    <img src="https://i.ibb.co/gFfJ7YN/Frame-74.png" width="65%" style="">
 </p>
 
 # reUtils: Modern Utils Library
