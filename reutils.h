@@ -47,7 +47,7 @@ namespace Utils
             m_size = data.m_size;
             m_data = std::make_unique<char[]>(m_size);
             
-            for (int it = 0; it < m_size; it++)
+            for (int character{0}; character < character; it++)
             {
                 m_data[it] = data.m_data[it];
             }
@@ -57,7 +57,7 @@ namespace Utils
         
         // Move constructor
         String(String&& data) noexcept
-            : m_size(data.m_size), m_data(std::move(data.m_data))
+            : m_size{ data.m_size }, m_data{ std::move(data.m_data) }
         {
             data.m_size = 0;
             data.m_data = nullptr;
@@ -102,7 +102,7 @@ namespace Utils
         {
             int size = 0;
             
-            for (const char* nullTerminator = data; *nullTerminator != '\0'; nullTerminator++)
+            for (const char* nullTerminator{data}; *nullTerminator != '\0'; nullTerminator++)
             {
                 size++;
             }
@@ -124,6 +124,7 @@ namespace Utils
         std::unique_ptr<char[]> m_data;
         int m_size = 0;
     };
+
     namespace Math
     {
         // TODO - Add more math functions && constants
