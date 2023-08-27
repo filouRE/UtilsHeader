@@ -6,10 +6,19 @@
 
 **reUtils**, your all-in-one utility header library designed to streamline your coding process by providing a comprehensive set of features without the hassle of multiple includes. Whether you're a seasoned developer or just starting out, reUtils has got you covered!
 
+# Table of Content
+- [**reUtils: Modern Utils Library**](#reutils--modern-utils-library)
+  * [Getting Started](#getting-started)
+  * [Documentation](#documentation)
+    + [Strings](#strings)
+  * [Roadmap](#roadmap)
+  * [Todo List](#todo-list)
+  * [Conventions and Guidelines](#conventions-and-guidelines)
+
 ## Getting Started
 reUtils is currently in its early stages, so beware that it is not meant to be use in production now. While I'm actively developing and expanding its capabilities, I encourage you to contribute to my project if you can. Though, please follow the already established patterns, guidelines, and conventions to make the code homogenous!
 
-## Features
+## Documentation
 Right now, the header is just starting out and therefore I haven't added a lot of features Currently. If you want to contribute you can do it for sure but I'll just make sure that the code is following the same patterns, guidelines and conventions. I'll post all of the conventions and guidelines in later commits.
 
 ### Strings
