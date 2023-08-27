@@ -6,7 +6,7 @@
 
 **reUtils**, your all-in-one utility header library designed to streamline your coding process by providing a comprehensive set of features without the hassle of multiple includes. Whether you're a seasoned developer or just starting out, reUtils has got you covered!
 
-# Table of Content
+## Table of Content
 - [**reUtils: Modern Utils Library**](#reutils--modern-utils-library)
   * [Getting Started](#getting-started)
   * [Documentation](#documentation)
