@@ -28,7 +28,8 @@ Right now, the header is just starting out and therefore I haven't added a lot o
     - **ostream overload**
 
 - Public Methods
-    - **int Length()**: Discover the length (character count) of your string effortlessly.
+    - **int Length()**
+        - Returns the length (character count) of your string as an integer.
 
 ## Roadmap
 - As of August 26, 2023, we've initiated our journey with the first commit, laying the foundation for the String class. Exciting things are on the horizon as we work diligently to expand reUtils.
