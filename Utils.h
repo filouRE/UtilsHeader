@@ -124,9 +124,9 @@ namespace Utils
         std::unique_ptr<char[]> m_data;
         int m_size = 0;
     };
-    namespace
+    namespace Math
     {
-        
+        // TODO - Add more math functions && constants
     }
 }
 
