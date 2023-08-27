@@ -16,7 +16,7 @@
   * [Conventions and Guidelines](#conventions-and-guidelines)
 
 ## Getting Started
-reUtils is currently in its early stages, so beware that it is not meant to be use in production now. While I'm actively developing and expanding its capabilities, I encourage you to contribute to my project if you can. Though, please follow the already established patterns, guidelines, and conventions to make the code homogenous!
+reUtils is currently in its early stages, so beware that it is not meant to be used in production now. While I'm actively developing and expanding its capabilities, I encourage you to contribute to my project if you can. Please follow the already established patterns, guidelines, and conventions to make the code homogenous!
 
 ## Documentation
 Right now, the header is just starting out and therefore I haven't added a lot of features Currently. If you want to contribute you can do it for sure but I'll just make sure that the code is following the same patterns, guidelines and conventions. I'll post all of the conventions and guidelines in later commits.
@@ -41,10 +41,10 @@ I'm currently dedicated to making reUtils a very nice tool for developers. Here'
 - [ ] Advanced String: Elevate your string manipulation capabilities.
 - [ ] Logging: Effortless logging for better debugging.
 - [ ] File System: Simplified file operations.
-- [ ] Math: Mathematical utilities at your fingertips.
+- [ ] Math: Mathematical utilities for many different needs.
 - [ ] Physics: Tools for physics-related calculations.
 - [ ] PRNGs: Pseudorandom number generators for varied applications.
-- [ ] Dates and Timer: Manage dates and time with ease.
+- [ ] Dates and Timer: Manage dates and times with ease.
 - [ ] Networking: Simplified networking functionalities.
 
 ## Conventions and Guidelines
