@@ -32,16 +32,18 @@ Right now, the header is just starting out and therefore I haven't added a lot o
         - Returns the length (character count) of your string as an integer.
 
 ## Roadmap
-- As of August 26, 2023, we've initiated our journey with the first commit, laying the foundation for the String class. Exciting things are on the horizon as we work diligently to expand reUtils.
+- As of August 29, 2023, I've added more functionality to the Math's namespace and now the vector class is getting usable. Also added cmake.
+- As of August 26, 2023, I've initiated our journey with the first commit, laying the foundation for the String class.
 
 ## Todo List
 I'm currently dedicated to making reUtils a very nice tool for developers. Here's a glimpse of what's incoming:
 
-- [x] Basic String: Already implemented!
+- [x] Basic String
+- [ ] Basic Math
 - [ ] Advanced String: Elevate your string manipulation capabilities.
 - [ ] Logging: Effortless logging for better debugging.
 - [ ] File System: Simplified file operations.
-- [ ] Math: Mathematical utilities for many different needs.
+- [ ] Advanced Math: Mathematical utilities for many different needs.
 - [ ] Physics: Tools for physics-related calculations.
 - [ ] PRNGs: Pseudorandom number generators for varied applications.
 - [ ] Dates and Timer: Manage dates and times with ease.
