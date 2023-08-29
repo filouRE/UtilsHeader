@@ -1,0 +1,3 @@
+/Users/flaze/Documents/GitHub/UtilsHeader/CMakeFiles/main.o.dir
+/Users/flaze/Documents/GitHub/UtilsHeader/CMakeFiles/edit_cache.dir
+/Users/flaze/Documents/GitHub/UtilsHeader/CMakeFiles/rebuild_cache.dir
