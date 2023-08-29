@@ -1,5 +1,5 @@
 # only for cmake --version >= 3.5.1
-cmake_minimum_required(VERSION 3.27.4)
+cmake_minimum_required(VERSION 3.4.1)
 
 # project name
 project(rvarago-hello-cmake)
