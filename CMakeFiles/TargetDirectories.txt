@@ -1,3 +1,0 @@
-/workspaces/reUtils/CMakeFiles/main.o.dir
-/workspaces/reUtils/CMakeFiles/edit_cache.dir
-/workspaces/reUtils/CMakeFiles/rebuild_cache.dir

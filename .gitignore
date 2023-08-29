@@ -34,16 +34,17 @@
 *.cpp
 
 # cmake
-**/cmake-build-debug
-**/CMakeCache.txt
-**/cmake_install.cmake
-**/install_manifest.txt
-**/CMakeFiles/
-**/CTestTestfile.cmake
-**/Makefile
+**/.cmake-build-debug
+**/.CMakeCache.txt
+**/.cmake_install.cmake
+**/.install_manifest.txt
+**/.CMakeFiles/
+**/.CTestTestfile.cmake
+**/.Makefile
 **/*.cbp
-**/CMakeScripts
-**/compile_commands.json
+**/.CMakeScripts
+**/.compile_commands.json
+**/.CMakeFiles
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -55,3 +56,4 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+CMakeFiles/
