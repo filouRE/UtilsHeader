@@ -17,7 +17,7 @@ namespace Utils
         }
 
         // String constructor
-        String(const char *string)
+        String(const char* string)
             : m_size{getSize(string)}
         {
             m_data = std::make_unique<char[]>(m_size);
@@ -104,7 +104,7 @@ namespace Utils
         {
             int size = 0;
 
-            for (const char *nullTerminator{data}; *nullTerminator != '\0'; nullTerminator++)
+            for (const char* nullTerminator{data}; *nullTerminator != '\0'; nullTerminator++)
             {
                 size++;
             }
@@ -113,7 +113,7 @@ namespace Utils
         }
 
         // Returns the string
-        const char *getData() const
+        const char* getData() const
         {
             if (!m_data)
                 throw std::runtime_error("error, string is empty");
