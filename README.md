@@ -23,15 +23,52 @@ Right now, the header is just starting out and therefore I haven't added a lot o
 
 ### Strings
 - Class Composition:
-    - **Instantiation**
-    - **Moving**
-    - **ostream overload**
+    - **Constructors**
+    - **Public Getters**
+    - **Public Modifiers**
+    - **Operator Overloads**
+    - **Externs/Overrides**
+    - **Private Getters**
+    - **Private Modifiers**
 
 - Public Methods
     - **int Length()**
         - Returns the length (character count) of your string as an integer.
+    - **String& pop_back()**
+        - Remove the last character of the string
+    - **String sub(int, int = 0)**
+        - Substract a part of the string
+    - **String substring(int, int = 0)**
+        - See sub()
+    - **String cut(int, int = 0)**
+        - See sub()
+    - **String& append(const char*)**
+        - Append character(s) to the end of the string
+    - **String& replace(int, const char*)**
+        - Replace a part of the string with another string
+    - **String& operator+=(int, const char*)**
+        - Add more characetrs to the string
+    - **int operator--()**
+        - see pop_back()
+
+### Math (namespace)
+- Namespace Composition:
+    - **Math basic operations**
+    - **List of Constants**
+    - **Vectors 2D**
+
+- Classes
+#### Vectors
+- Class Composition:
+    - **Constructors**
+    - **Operator Overloads**
+    - **Public Getters**
+
+- Public Methods
+  - **todo**
 
 ## Roadmap
+- As of October 2, 2023, I've almost completed the string class and started to document the codebase better.
 - As of August 29, 2023, I've added more functionality to the Math's namespace and now the vector class is getting usable. Also added cmake.
 - As of August 26, 2023, I've initiated our journey with the first commit, laying the foundation for the String class.
 

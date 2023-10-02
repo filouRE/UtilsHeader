@@ -10,6 +10,7 @@ namespace Utils
     class String
     {
     public:
+        /* CONSTRUCTORS */
         // Default constructor
         String()
             : m_data{nullptr}
@@ -21,11 +22,9 @@ namespace Utils
             : m_size{getSize(string)}
         {
             m_data = std::make_unique<char[]>(m_size);
-
+            
             for (int it = 0; it < m_size; it++)
-            {
                 m_data[it] = string[it];
-            }
         }
 
         // Copy constructor
@@ -35,9 +34,7 @@ namespace Utils
             m_data = std::make_unique<char[]>(m_size);
 
             for (int it = 0; it < m_size; it++)
-            {
                 m_data[it] = data.m_data[it];
-            }
         }
 
         // Copy assignment
@@ -50,16 +47,15 @@ namespace Utils
             m_data = std::make_unique<char[]>(m_size);
 
             for (int character{0}; character < m_size; character++)
-            {
                 m_data[character] = obj.m_data[character];
-            }
 
             return *this;
         }
 
         // Move constructor
         String(String &&data) noexcept
-            : m_size{data.m_size}, m_data{std::move(data.m_data)}
+            : m_size{data.m_size}, 
+              m_data{std::move(data.m_data)}
         {
             data.m_size = 0;
             data.m_data = nullptr;
@@ -91,37 +87,21 @@ namespace Utils
         }
 
         /* PUBLIC MODIFIERS */
-        String& push_back(const char character)
-        {
-            m_size++;
-            std::unique_ptr<char[]> temp = std::make_unique<char[]>(m_size);
-
-            for (int it{0}; it < m_size - 1; it++)
-            {
-                temp[it] = m_data[it];
-            }
-
-            temp[m_size - 1] = character;
-            m_data = std::move(temp);
-
-            return *this;
-        }
-
+        // remove the last character of the string
         String& pop_back()
         {
             m_size--;
             std::unique_ptr<char[]> temp = std::make_unique<char[]>(m_size);
 
             for (int it{0}; it < m_size; it++)
-            {
                 temp[it] = m_data[it];
-            }
 
             m_data = std::move(temp);
 
             return *this;
         }
 
+        // substract a part of the string
         String sub(int start, int end = 0)
         {
             if (end == 0)
@@ -134,17 +114,69 @@ namespace Utils
             std::unique_ptr<char[]> temp = std::make_unique<char[]>(size);
 
             for (int it{0}; it < size; it++)
-            {
                 temp[it] = m_data[start + it];
-            }
 
             return String(temp.get());
         }
 
-        // same as sub
+        // See sub()
         String substring(int start, int end = 0)
         {
             return sub(start, end);
+        } 
+
+        // See sub()
+        String cut(int start, int end = 0)
+        {
+            return sub(start, end);
+        } 
+
+        // Append character(s) to the end of the string
+        String& append(const char* string)
+        {
+            int size = getSize(string);
+            this->m_size += getSize(string);
+            
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(size);
+
+            for (int it{0}; it < this->m_size; it++)
+                temp[it] = this->m_data[it];
+
+            for (int it{0}; it < size; it++)
+                temp[m_size + it] = string[it];
+
+            this->m_data = std::move(temp);
+
+            return *this;
+        }
+
+       // Replace a part of the string with another string
+       String& replace(int start, const char* string, int end = 0)
+       {            
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(this->m_size + getSize(string));
+
+            for (int it{0}; it < start; it++)
+                temp[it] = this->m_data[it];
+
+            for (int it{start}; it < (this->m_size + getSize(string)); it++)
+                temp[it] = string[it - start];
+
+            this->m_data = std::move(temp);
+
+            return *this;
+       }
+        
+        /* OPERATORS OVERLOADS */
+        // add more characetrs to the string
+        String& operator+=(const char* string)
+        {
+            return append(string);
+        }
+
+        // see pop_back()
+        String& operator--()
+        {
+            return pop_back();
         }
 
         /* EXTERNS/OVERRIDES */
@@ -156,18 +188,11 @@ namespace Utils
 
     private:
         /* PRIVATE GETTERS */
-        // Calculate and Returns the number of characters in the string
         int getSize(const char *data) const
         {
-            int size = 0;
-
-            for (const char* nullTerminator{data}; *nullTerminator != '\0'; nullTerminator++)
-            {
-                size++;
-            }
-
-            return size;
+            return std::count_if(data, data + sizeof(data), [](char c) { return c != '\0'; });;
         }
+        // Calculate and Returns the number of characters in the string
 
         // Returns the string
         const char* getData() const
@@ -176,6 +201,22 @@ namespace Utils
                 throw std::runtime_error("error, string is empty");
 
             return m_data.get();
+        }
+
+        /* PRIVATE MODIFIERS */
+        // Add a character to the end of the string
+        String& push_back(const char character)
+        {
+            m_size++;
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(m_size);
+
+            for (int it{0}; it < m_size - 1; it++)
+                temp[it] = m_data[it];
+
+            temp[m_size - 1] = character;
+            m_data = std::move(temp);
+
+            return *this;
         }
 
     private:
@@ -187,22 +228,21 @@ namespace Utils
     namespace Math
     {
         /* MATH BASIC OPERATIONS */
-
-        // returns the sum of two numbers
+        // Returns the sum of two numbers
         template <typename T, typename U>
         auto add(T number1, U number2)
         {
             return number1 + number2;
         }
 
-        // returns the difference of two numbers
+        // Returns the difference of two numbers
         template <typename T, typename U>
         auto sub(T number1, U number2)
         {
             return number1 - number2;
         }
 
-        // returns the product of two numbers
+        // Returns the product of two numbers
         template <typename T, typename U>
         auto mul(T number1, U number2)
         {
@@ -262,6 +302,7 @@ namespace Utils
             constexpr int SPEED_OF_LIGHT = 186282;
         }
 
+        /* VECTORS 2D */
         template <typename T, typename U>
         class Vector2
         {
@@ -282,9 +323,6 @@ namespace Utils
                 : m_x{x}, m_y{y}
             {
             }
-
-            /* DESTRUCTORS */
-            ~Vector2() = delete;
 
             // Copy constructor
             Vector2(const Vector2& obj)
@@ -327,7 +365,11 @@ namespace Utils
                 return *this;
             }
 
+            // Destructor
+            ~Vector2() = delete;
+
             /* OPERATORS OVERLOADS */
+            // Returns the sum of two vectors
             Vector2& operator+(const Vector2& obj)
             {
                 return Vector2(this->m_x + obj.m_x, this->m_y + obj.m_y);
@@ -338,7 +380,7 @@ namespace Utils
                 return Vector2(this->m_x - obj.m_x, this->m_y - obj.m_y);
             }
 
-            // returns Unit Vector
+            // Returns Unit Vector
             Vector2& operator/(int scalar)
             {
                 return Vector2(this->m_x / scalar, this->m_y / scalar);

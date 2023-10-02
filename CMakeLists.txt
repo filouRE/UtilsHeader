@@ -1,11 +1,11 @@
 # only for cmake --version >= 3.5.1
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.0)
 
 # project name
-project(rvarago-hello-cmake)
+project(reutils_header_only)
 
 # creates the variable EXEC and sets it to hello
-set(EXEC main.o)
+set(EXEC main.out)
 
 # set the C++14 standard
 set(CMAKE_CXX_STANDARD 20)
