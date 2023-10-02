@@ -85,9 +85,66 @@ namespace Utils
 
         /* PUBLIC GETTERS */
         // Returns Length of the string
-        int Length() const
+        int length() const
         {
             return m_size;
+        }
+
+        /* PUBLIC MODIFIERS */
+        String& push_back(const char character)
+        {
+            m_size++;
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(m_size);
+
+            for (int it{0}; it < m_size - 1; it++)
+            {
+                temp[it] = m_data[it];
+            }
+
+            temp[m_size - 1] = character;
+            m_data = std::move(temp);
+
+            return *this;
+        }
+
+        String& pop_back()
+        {
+            m_size--;
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(m_size);
+
+            for (int it{0}; it < m_size; it++)
+            {
+                temp[it] = m_data[it];
+            }
+
+            m_data = std::move(temp);
+
+            return *this;
+        }
+
+        String sub(int start, int end = 0)
+        {
+            if (end == 0)
+                end = m_size;
+
+            if (start < 0 || end > m_size)
+                throw std::runtime_error("error, index out of bounds");
+
+            int size = end - start;
+            std::unique_ptr<char[]> temp = std::make_unique<char[]>(size);
+
+            for (int it{0}; it < size; it++)
+            {
+                temp[it] = m_data[start + it];
+            }
+
+            return String(temp.get());
+        }
+
+        // same as sub
+        String substring(int start, int end = 0)
+        {
+            return sub(start, end);
         }
 
         /* EXTERNS/OVERRIDES */
@@ -161,23 +218,25 @@ namespace Utils
 
         // TODO LATER: fix the number of digits after the decimal point later
         // returns the square root of a number
-        template <typename T>
-        long double sqrt(T number)
+        long double sqrt(long double value)
         {
-            long double approximation{ static_cast<long double>(number) }, currentGuess{ 0 };
+            if (value < 0)
+                return -1;
+                
+            long double lo = 1.l;
+            long double hi = value;
 
-            while (approximation * approximation > number)
-                approximation = (approximation + number / approximation) / 2, currentGuess++;
-
-            for (int iteration = 0; iteration < 10; iteration++)
+            while( hi - lo > 0.00001)
             {
-                approximation = (approximation + number / approximation) / 2;
-
-                if (approximation * approximation == number)
-                    return approximation;
+                double mid = lo + (hi - lo) / 2.l ;
+                if( mid * mid - value > 0.00001)   
+                {
+                    hi = mid;
+                } else {
+                    lo = mid;
+                }
             }
-
-            return approximation;
+            return lo;
         }
 
         // returns exponents
