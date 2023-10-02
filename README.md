@@ -18,6 +18,9 @@
 ## Getting Started
 reUtils is currently in its early stages, so beware that it is not meant to be used in production now. While I'm actively developing and expanding its capabilities, I encourage you to contribute to my project if you can. Please follow the already established patterns, guidelines, and conventions to make the code homogenous!
 
+## Prerequisites
+- cmake version >=3.0
+
 ## Building/Compiling 🛠️
 ```bash
 # Initialize the project
