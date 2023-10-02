@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <type_traits>
+#include <algorithm>
 
 namespace Utils
 {
@@ -190,7 +191,7 @@ namespace Utils
         /* PRIVATE GETTERS */
         int getSize(const char *data) const
         {
-            return std::count_if(data, data + sizeof(data), [](char c) { return c != '\0'; });;
+            return std::count_if(data, data + sizeof(data), [](char c) { return c != '\0'; });
         }
         // Calculate and Returns the number of characters in the string
 
