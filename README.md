@@ -19,14 +19,21 @@
 reUtils is currently in its early stages, so beware that it is not meant to be used in production now. While I'm actively developing and expanding its capabilities, I encourage you to contribute to my project if you can. Please follow the already established patterns, guidelines, and conventions to make the code homogenous!
 
 ## Prerequisites
-- cmake version >=3.0
+- cmake version >=3.15
+- On windows: Visual Studio >=2019
 
 ## Building/Compiling 🛠️
+### On windows
 ```bash
-# Initialize the project
-cmake .
-# Compile the project
-cmake --build .
+# Build the project and open visual studio
+./build.bat
+```
+### On Linux/MacOS
+```bash
+# Build the project
+./build.sh
+# Run the project
+cd build && ./run.sh
 ```
 
 ## Documentation
@@ -53,11 +60,11 @@ Right now, the header is just starting out and therefore I haven't added a lot o
         - See sub()
     - **String cut(int, int = 0)**
         - See sub()
-    - **String& append(const char*)**
+    - **String& append(const char\*)**
         - Append character(s) to the end of the string
-    - **String& replace(int, const char*)**
+    - **String& replace(int, const char\*)**
         - Replace a part of the string with another string
-    - **String& operator+=(int, const char*)**
+    - **String& operator+=(int, const char\*)**
         - Add more characetrs to the string
     - **int operator--()**
         - see pop_back()
@@ -68,15 +75,14 @@ Right now, the header is just starting out and therefore I haven't added a lot o
     - **List of Constants**
     - **Vectors 2D**
 
-- Classes
-#### Vectors
-- Class Composition:
-    - **Constructors**
-    - **Operator Overloads**
-    - **Public Getters**
+    #### Vectors2D (classes)
+    - Class Composition:
+        - **Constructors**
+        - **Operator Overloads**
+        - **Public Getters**
 
-- Public Methods
-  - **todo**
+    - Public Methods
+      - **todo**
 
 ## Roadmap
 - As of October 2, 2023, I've almost completed the string class and started to document the codebase better.
@@ -87,7 +93,7 @@ Right now, the header is just starting out and therefore I haven't added a lot o
 I'm currently dedicated to making reUtils a very nice tool for developers. Here's a glimpse of what's incoming:
 
 - [x] Basic String
-- [ ] Basic Math
+- [x] Basic Math
 - [ ] Advanced String: Elevate your string manipulation capabilities.
 - [ ] Logging: Effortless logging for better debugging.
 - [ ] File System: Simplified file operations.
