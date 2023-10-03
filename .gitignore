@@ -31,7 +31,9 @@
 *.out
 *.app
 *.c
-*.cpp
+.vs
+
+build
 
 # cmake
 **/.cmake-build-debug
