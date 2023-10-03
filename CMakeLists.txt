@@ -4,14 +4,14 @@ project(reutils)
 # Header file directory
 include_directories(${CMAKE_SOURCE_DIR})
 
-# Source files
-file(GLOB SOURCES "example/*.cpp")
-
 # Set C++ standard to C++20
 set(CMAKE_CXX_STANDARD 20)
 
 # For Windows (Visual Studio 2022)
 if (WIN32)
+  # Source files
+  add_executable(reutils ../example/main.cpp)
+
   # Specify that we want to use Visual Studio 2022
   set(CMAKE_GENERATOR_TOOLSET "host=x64" CACHE STRING "Platform toolset" FORCE)
 
@@ -27,6 +27,9 @@ if (WIN32)
 else ()
   # For Linux
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+  # Source files
+  file(GLOB SOURCES "example/*.cpp")
 
   # creates the variable EXEC and sets it to hello
   set(EXEC main.o)
