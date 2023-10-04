@@ -256,7 +256,8 @@ namespace Utils
             return number1 / number2;
         }
 
-        // TODO LATER: fix the number of digits after the decimal point later
+        // TODO LATER: fix the number of digits after the decimal point later 
+        // SOLUTION: (create my own float number type because the std one's are too small)
         // returns the square root of a number
         long double sqrt(long double value)
         {
