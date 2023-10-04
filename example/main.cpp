@@ -3,8 +3,12 @@
 
 int main()
 {
-    std::string str{ "Hello, World!" };
-    std::cout << str << std::endl;
-    
+    //Utils::Math::setDecimals(10);
+
+    std::cout << Utils::Math::Constants::PI << std::endl;
+
+    Utils::Math::setDecimals(24);
+    std::cout << Utils::Math::Constants::PI << std::endl;
+
     return 0;
 }

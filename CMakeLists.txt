@@ -36,19 +36,16 @@ else ()
 
   # I../includes
   include_directories(../**/*.h)
-
   # Enable multi-threaded compilation
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-
   # Enable debug symbols
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
-
   # Enable optimization
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-
   # Enable profile guided optimization
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
+  
+  # Set the exec
   add_executable(${EXEC} ${SOURCES})
 
 endif ()

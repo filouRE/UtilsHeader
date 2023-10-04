@@ -4,9 +4,11 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <iomanip>
 
 namespace Utils
 {
+	/* CUSTOM TYPE */
 	class String
 	{
 	public:
@@ -256,34 +258,36 @@ namespace Utils
 			return number1 / number2;
 		}
 
-		// TODO LATER: fix the number of digits after the decimal point later
 		// returns the square root of a number
-		long double sqrt(long double value)
+		long double sqrt(long double value, int decimals = 10)
 		{
+			if (decimals > 10)
+				throw std::runtime_error("error, too many decimals");
+
+			// put more decimals numbers
+			std::cout.precision(decimals);
+
 			if (value < 0)
 				return -1;
 
 			long double lo = 1.l;
 			long double hi = value;
 
-			while (hi - lo > 0.00001)
+			while (hi - lo > 0.00000000000000001)
 			{
-				double mid = lo + (hi - lo) / 2.l;
-				if (mid * mid - value > 0.00001)
-				{
+				long double mid = lo + (hi - lo) / 2.l;
+				if (mid * mid - value > 0.00000000000000001)
 					hi = mid;
-				}
-				else {
+				else
 					lo = mid;
-				}
 			}
 			return lo;
 		}
 
 		// returns exponents
-		int exponent(int number, int power)
+		long int exponent(long int number, long int power)
 		{
-			for (int iteration{ 1 }; iteration < power; iteration++)
+			for (long int iteration{ 1 }; iteration < power; iteration++)
 				number *= number;
 
 			return number;
@@ -292,10 +296,22 @@ namespace Utils
 		/* LIST OF CONSTANTS */
 		namespace Constants
 		{
-			constexpr double PI = 3.14159265358979323846;
-			constexpr double EULERS = 2.71828182845904523536;
-			constexpr double GOLDEN_RATIO = 1.61803398874989484820;
+			constexpr long double PI = 3.141592653589793;
+			constexpr long double EULERS = 2.71828182845904523536;
+			constexpr long double GOLDEN_RATIO = 1.61803398874989484820;
 			constexpr int SPEED_OF_LIGHT = 186282;
+		}
+
+		// SET DECIMAL POINT
+		void setDecimals(int decimals = 5)
+		{
+			// 15 is the max float size
+			if (decimals > 15)
+				throw std::runtime_error("error, too many decimals");
+
+			// put more decimals numbers
+    		std::cout << std::fixed;
+    		std::cout.precision(decimals);
 		}
 
 		/* VECTORS 2D */
