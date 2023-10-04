@@ -125,7 +125,7 @@ namespace Utils
 			return sub(start, end);
 		}
 
-		// See sub()
+		// See sub() 
 		String cut(int start, int end = 0)
 		{
 			return sub(start, end);
