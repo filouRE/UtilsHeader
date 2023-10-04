@@ -28,7 +28,7 @@ namespace Utils
         }
 
         // Copy constructor
-        String(const String &data)
+        String(const String& data)
             : m_size{data.m_size}
         {
             m_data = std::make_unique<char[]>(m_size);
@@ -38,7 +38,7 @@ namespace Utils
         }
 
         // Copy assignment
-        String& operator=(const String &obj)
+        String& operator=(const String& obj)
         {
             if (this == &obj)
                 return *this;
@@ -53,7 +53,7 @@ namespace Utils
         }
 
         // Move constructor
-        String(String &&data) noexcept
+        String(String&& data) noexcept
             : m_size{data.m_size}, 
               m_data{std::move(data.m_data)}
         {
@@ -62,7 +62,7 @@ namespace Utils
         }
 
         // Move assignment
-        String& operator=(String &&data) noexcept
+        String& operator=(String&& data) noexcept
         {
             if (this == &data)
                 return *this;
@@ -181,14 +181,14 @@ namespace Utils
 
         /* EXTERNS/OVERRIDES */
         // Print out the object
-        friend std::ostream& operator<<(std::ostream &out, const String &obj)
+        friend std::ostream& operator<<(std::ostream& out, const String& obj)
         {
             return out << obj.getData();
         }
 
     private:
         /* PRIVATE GETTERS */
-        int getSize(const char *data) const
+        int getSize(const char* data) const
         {
             return std::count_if(data, data + sizeof(data), [](char c) { return c != '\0'; });
         }
@@ -366,7 +366,7 @@ namespace Utils
             }
 
             // Destructor
-            ~Vector2() = delete;
+            //~Vector2() = delete;
 
             /* OPERATORS OVERLOADS */
             // Returns the sum of two vectors
@@ -375,7 +375,7 @@ namespace Utils
                 return Vector2(this->m_x + obj.m_x, this->m_y + obj.m_y);
             }
 
-            Vector2& operator-(const Vector2 &obj)
+            Vector2& operator-(const Vector2& obj)
             {
                 return Vector2(this->m_x - obj.m_x, this->m_y - obj.m_y);
             }
@@ -426,9 +426,9 @@ namespace Utils
 
             /* EXTERNS/OVERRIDES */
             // Print out the object
-            friend std::ostream& operator<<(std::ostream &out, const Vector2<T, U> &obj)
+            friend std::ostream& operator<<(std::ostream &out, const Vector2<T, U>& obj)
             {
-                out << "( " << obj.m_x << ", " << obj.m_y << ")";
+                out << "(" << obj.m_x << ", " << obj.m_y << ")";
                 return out;
             }
 
