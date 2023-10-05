@@ -10,7 +10,7 @@
   * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
       - CMake version >=3.15
-      - Visual Studio >=2019 (Windows)
+      - Visual Studio >=2022 (Windows)
   * [Building/Compiling](#buildingcompiling)
       * On Windows, Linux and MacOS
   * [Documentation](#documentation)
@@ -30,13 +30,13 @@ reUtils is currently in its early stages, so beware that it is not meant to be u
 ## Prerequisites
 - CMake version >=3.15 [(Install latest version)](https://cmake.org/download/)
 - **On windows:**
-    - Visual Studio >=2019 [(Install latest version)](https://cmake.org/download/)
+    - Visual Studio >=2022 [(Install latest version)](https://cmake.org/download/)
 
 ## Building/Compiling
 ### On windows
 ```bash
 # Build the project and open visual studio
-./build.bat
+./build.bat # or you can just open it like an exe
 ```
 ### On Linux/MacOS
 ```bash
