@@ -27,5 +27,4 @@ if exist "C:\Program Files\CMake\bin" (
 )
 
 :build_project
-timeout /t 2
-call build.bat
+start /wait powershell -Command $"Start-Process -FilePath 'TODCHANGE'"
