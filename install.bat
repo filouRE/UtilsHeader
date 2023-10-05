@@ -1,5 +1,7 @@
 @echo off
 
+cd YOUR_PATH_TO_REUTILS
+
 if exist "C:\Program Files\CMake\bin" (
     goto build_project
     
@@ -28,4 +30,4 @@ if exist "C:\Program Files\CMake\bin" (
 )
 
 :build_project
-start /wait powershell -Command "Start-Process -FilePath 'TODCHANGE'"
+start /wait powershell -Command "Start-Process -FilePath 'C:\Users\juste\OneDrive\Documents\GitHub\reUtils\build.bat'"
