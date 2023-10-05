@@ -19,6 +19,7 @@ if exist "C:\Program Files\CMake\bin" (
 
         start /wait msiexec.exe /I cmake-install.msi /passive
 
+        timeout /t 2
         start /wait powershell -Command "[System.Environment]::SetEnvironmentVariable('Path', $env:Path + ';C:\Program Files\CMake\bin', [System.EnvironmentVariableTarget]::Machine)"
         
         echo CMake is installed.
