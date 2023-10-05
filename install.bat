@@ -27,4 +27,4 @@ if exist "C:\Program Files\CMake\bin" (
 )
 
 :build_project
-start /wait powershell -Command $"Start-Process -FilePath 'TODCHANGE'"
+start /wait powershell -Command "Start-Process -FilePath 'TODCHANGE'"
