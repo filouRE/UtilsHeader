@@ -5,7 +5,7 @@
 #include <memory>
 #include <algorithm>
 #include <iomanip>
-
+ 
 namespace Utils
 {
 	/* CUSTOM TYPE */
