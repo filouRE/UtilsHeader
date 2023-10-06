@@ -35,8 +35,8 @@ reUtils is currently in its early stages, so beware that it is not meant to be u
 ## Building/Compiling
 ### On windows
 ```bash
-# Build the project and open visual studio
-./build.bat # or you can just open it like an exe
+# Run the batch file as administrator
+build.bat
 ```
 ### On Linux/MacOS
 ```bash
