@@ -3,8 +3,8 @@
 
 int main()
 {
-    Utils::Math::setDecimals(15);
-    std::cout << Utils::Math::Constants::PI << std::endl;
+    //Utils::Math::setDecimals(15);
+    std::cout << Utils::Math::sqrt(5, 20) << std::endl;
 
     return 0;
 }

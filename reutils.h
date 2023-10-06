@@ -258,10 +258,25 @@ namespace Utils
 			return number1 / number2;
 		}
 
+
+		// returns exponents
+		template <typename T>
+		T pow(T a, T b) 
+		{
+			if (b == 0)
+				return 1;
+
+			if (static_cast<int>(b) % 2 == 0)
+				return pow(a * a, b / 2);
+			
+			return a * pow(a * a, (b - 1) / 2);
+		}
+
+
 		// returns the square root of a number
 		long double sqrt(long double value, int decimals = 10)
 		{
-			if (decimals > 10)
+			if (decimals > 24)
 				throw std::runtime_error("error, too many decimals");
 
 			// put more decimals numbers
@@ -270,27 +285,18 @@ namespace Utils
 			if (value < 0)
 				return -1;
 
-			long double lo = 1.l;
+			long double lo = 1;
 			long double hi = value;
 
-			while (hi - lo > 0.00000000000000001)
+			while (hi - lo > pow<long float>(0.1, decimals - 1))
 			{
-				long double mid = lo + (hi - lo) / 2.l;
-				if (mid * mid - value > 0.00000000000000001)
+				long double mid = lo + (hi - lo) / 2;
+				if (mid * mid - value > pow<long float>(0.1, decimals - 1))
 					hi = mid;
 				else
 					lo = mid;
 			}
 			return lo;
-		}
-
-		// returns exponents
-		long int exponent(long int number, long int power)
-		{
-			for (long int iteration{ 1 }; iteration < power; iteration++)
-				number *= number;
-
-			return number;
 		}
 
 		/* LIST OF CONSTANTS */
