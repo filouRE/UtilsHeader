@@ -261,7 +261,7 @@ namespace Utils
 
 		// returns exponents
 		template <typename T>
-		T pow(T a, T b) 
+		auto pow(T a, T b) 
 		{
 			if (b == 0)
 				return 1;
@@ -271,7 +271,6 @@ namespace Utils
 			
 			return a * pow(a * a, (b - 1) / 2);
 		}
-
 
 		// returns the square root of a number
 		long double sqrt(long double value, int decimals = 10)
@@ -288,10 +287,10 @@ namespace Utils
 			long double lo = 1;
 			long double hi = value;
 
-			while (hi - lo > pow<long float>(0.1, decimals - 1))
+			while (hi - lo > pow<long double>(0.1, decimals - 1))
 			{
 				long double mid = lo + (hi - lo) / 2;
-				if (mid * mid - value > pow<long float>(0.1, decimals - 1))
+				if (mid * mid - value > pow<long double>(0.1, decimals - 1))
 					hi = mid;
 				else
 					lo = mid;
