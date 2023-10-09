@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <memory>
-#include <algorithm>
 #include <iomanip>
- 
-namespace Utils
+#include <chrono>
+#include <random>
+
+namespace ReUtils
 {
 	/* CUSTOM TYPE */
 	class String
@@ -232,28 +233,28 @@ namespace Utils
 		/* MATH BASIC OPERATIONS */
 		// Returns the sum of two numbers
 		template <typename T, typename U>
-		auto add(T number1, U number2)
+		inline auto add(T number1, U number2)
 		{
 			return number1 + number2;
 		}
 
 		// Returns the difference of two numbers
 		template <typename T, typename U>
-		auto sub(T number1, U number2)
+		inline auto sub(T number1, U number2)
 		{
 			return number1 - number2;
 		}
 
 		// Returns the product of two numbers
 		template <typename T, typename U>
-		auto mul(T number1, U number2)
+		inline auto mul(T number1, U number2)
 		{
 			return number1 * number2;
 		}
 
 		// returns the quotient of two numbers
 		template <typename T, typename U>
-		auto div(T number1, U number2)
+		inline auto div(T number1, U number2)
 		{
 			return number1 / number2;
 		}
@@ -261,7 +262,7 @@ namespace Utils
 
 		// returns exponents
 		template <typename T>
-		auto pow(T a, T b) 
+		long double pow(T a, T b) 
 		{
 			if (b == 0)
 				return 1;
@@ -275,7 +276,8 @@ namespace Utils
 		// returns the square root of a number
 		long double sqrt(long double value, int decimals = 10)
 		{
-			if (decimals > 24)
+			// todo: try to make it more numbers
+			if (decimals > 16)
 				throw std::runtime_error("error, too many decimals");
 
 			// put more decimals numbers
@@ -456,6 +458,40 @@ namespace Utils
 		};
 		template <typename T, typename U>
 		using Vec2 = Vector2<T, U>;
+	}
+
+	namespace Random
+	{
+		inline std::mt19937 generate()
+		{
+			std::random_device rd{};
+
+			// Create seed_seq with clock and 7 random numbers from std::random_device
+			std::seed_seq ss{
+				static_cast<std::seed_seq::result_type>(std::chrono::steady_clock::now().time_since_epoch().count()),
+				rd(), rd(), rd(), rd(), rd(), rd(), rd() };
+
+			return std::mt19937{ ss };
+		}
+
+		inline std::mt19937 mt{ generate() };
+
+		inline int get(int min, int max)
+		{
+			return std::uniform_int_distribution{min, max}(mt);
+		}
+
+		template <typename T>
+		T get(T min, T max)
+		{
+			return std::uniform_int_distribution<T>{min, max}(mt);
+		}
+
+		template <typename R, typename S, typename T>
+		R get(S min, T max)
+		{
+			return get<R>(static_cast<R>(min), static_cast<R>(max));
+		}
 	}
 }
 
