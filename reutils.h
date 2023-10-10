@@ -262,7 +262,7 @@ namespace ReUtils
 
 		// returns exponents
 		template <typename T>
-		long double pow(T a, T b) 
+		inline long double pow(T a, T b) 
 		{
 			if (b == 0)
 				return 1;
@@ -274,7 +274,7 @@ namespace ReUtils
 		}
 
 		// returns the square root of a number
-		long double sqrt(long double value, int decimals = 10)
+		inline long double sqrt(long double value, int decimals = 10)
 		{
 			// todo: try to make it more numbers
 			if (decimals > 16)

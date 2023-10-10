@@ -1,10 +1,11 @@
 #include <iostream>
 #include "../reutils.h"
+#include "example/test.cpp"
 
 int main()
 {
-    //Utils::Math::setDecimals(15);
-    std::cout << ReUtils::Random::get(0, 10) << std::endl;
+    std::cout << ReUtils::Math::pow(2, 3) << std::endl;
+    test();
 
     return 0;
 }
