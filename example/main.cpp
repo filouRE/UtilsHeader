@@ -1,10 +1,11 @@
 #include <iostream>
 #include "../reutils.h"
+#include "example/test.cpp"
 
 int main()
 {
-    //Utils::Math::setDecimals(15);
-    std::cout << Utils::Math::sqrt(5, 20) << std::endl;
+    std::cout << ReUtils::Math::pow(2, 3) << std::endl;
+    test();
 
     return 0;
 }

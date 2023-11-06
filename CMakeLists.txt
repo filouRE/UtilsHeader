@@ -44,7 +44,8 @@ else ()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
   # Enable profile guided optimization
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-  
+  set(CMAKE_CXX_STANDARD 20)
+
   # Set the exec
   add_executable(${EXEC} ${SOURCES})
 

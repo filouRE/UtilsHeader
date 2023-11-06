@@ -15,12 +15,3 @@ else
     chmod 777 ./run.sh
     echo "cd bin/ && chmod 777 main.o && ./main.o" >> run.sh
 fi
-
-# clear the console
-clear
-
-# executes the script
-./run.sh
-
-# go back to source
-cd ..
